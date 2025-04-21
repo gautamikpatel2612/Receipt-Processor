@@ -43,7 +43,7 @@ Lets you check how many points a receipt earned using that ID.
 Stores all data in memory – no database needed.
 
 
-	Receipt-processor /
+	FetchRewards /
 
 
 		main.go 		 
