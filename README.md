@@ -1,45 +1,63 @@
 # Receipt-Processor
+
 Fetch Rewards: Take Home Assessment - Backend Engineering
 
+
 ***********************************************************************************************************************************
+
 
 Project Overview
 
 
 We're building a web service with two endpoints:
+
 POST /receipts/process – Accepts receipt JSON, returns an ID.
+
 GET /receipts/{id}/points – Returns the calculated points for a receipt by its ID.
+
 Use the Go standard library (no frameworks).
+
 Store data in memory using a map[string]Receipt.
+
 Use uuid to generate unique IDs.
+
 Use mux to handle API routes cleanly and use path parameters like {id}.
+
 Use net/http for routing.
 
+
 ***********************************************************************************************************************************
+
 
 Project Does :
 
 
 Accepts a JSON receipt with information like store name, date, time, and items.
+
 Calculates points using rules (e.g. based on item descriptions, purchase time, etc.).
+
 Returns a unique ID for the receipt when submitted.
+
 Lets you check how many points a receipt earned using that ID.
+
 Stores all data in memory – no database needed.
 
 
-Receipt-processor /
+	Receipt-processor /
 
 
-main.go 		  Start the server
-handlers.go		Request handler logic
-models.go		  Points calculation logic
-points.go		  Data structures
-go.mod			  Go modules
-go.sum			  Go modules
-Dockerfile		for containerization
-README.md 		This file 
+		main.go 		 
+		handlers.go	
+		models.go		
+		points.go		  
+		go.mod			  
+		go.sum			 
+		Dockerfile		
+		README.md 		
+
 
 ***********************************************************************************************************************************
+
 
 STEP 1 :  
   go.mod , go.sum — Initialize Go Module
@@ -47,37 +65,49 @@ STEP 1 :
   go get github.com/google/uuid  : To generate unique IDs for receipts.
   go get github.com/gorilla/mux  : To handle API routes cleanly and use path parameters like {id}.
 
+
 ***********************************************************************************************************************************
+
 
 STEP 2 :  
   
   models.go — Define Data Structures
 
+
 ***********************************************************************************************************************************
+
 
 STEP 3 : 
  
   handlers.go — Define Handlers
 
+
 ***********************************************************************************************************************************
+
 
 STEP 4 :
   
   points.go — Calculate Points Logic
 
+
 ***********************************************************************************************************************************
+
 
 STEP 5 :
   
   main.go — Entry Point
 
+
 ***********************************************************************************************************************************
+
 
 STEP 6 :
   
   Dockerfile — Container Setup
 
+
 ***********************************************************************************************************************************
+
 
 STEP 7 : Run the App Locally(optional)
  
@@ -86,7 +116,9 @@ STEP 7 : Run the App Locally(optional)
     go run main.go handlers.go models.go points.go
     Server will be on: http://localhost:8080
 
+
 ***********************************************************************************************************************************
+
 
 STEP 8 : 
   
@@ -95,7 +127,9 @@ STEP 8 :
     docker build -t receipt-processor .
     docker run -p 8080:8080 receipt-processor
 
+
 ***********************************************************************************************************************************
+
 
 STEP 9 : Test API with Postman (GUI)
   
@@ -110,6 +144,7 @@ STEP 9 : Test API with Postman (GUI)
 	  Click Send
 	  Response: You’ll get { "id": "some-id" }
 
+ 
   2. Get Points – GET
    
     Method: GET
@@ -119,7 +154,9 @@ STEP 9 : Test API with Postman (GUI)
      	  Click Send
 	  Response: { "points": 123 }
 
+
 ***********************************************************************************************************************************
+
 
 STEP 10.1 : EX: 1  
 	
@@ -135,7 +172,9 @@ STEP 10.1 : EX: 1
 GET url : http://localhost:8080/receipts/{id}/points
 ![image](https://github.com/user-attachments/assets/3c871f79-3c3f-4344-ba91-7c4e53f6f16f)
 
+
 ***********************************************************************************************************************************
+
 
 STEP 10.2  : EX: 2 
 	POST url : http://localhost:8080/receipts/process
@@ -150,7 +189,9 @@ GET url : http://localhost:8080/receipts/{id}/points
 
 ![image](https://github.com/user-attachments/assets/718c51dc-0e3b-4647-bf8b-c829937eaa0b)
 
+
 ***********************************************************************************************************************************
+
 
 Points Logic:
 
@@ -169,7 +210,9 @@ For items with trimmed description length divisible by 3
 
 +10 points if the purchase time is between 2:00 pm and 4:00pm (exclusive)
 
+
 ***********************************************************************************************************************************
+
 
 Test Scenario:
 
@@ -177,19 +220,26 @@ Scenario 1 : If we are not adding any retailer then we will get “Invalid recei
 
 ![image](https://github.com/user-attachments/assets/86325367-8627-4c00-bdd2-8d48e7b935f6)
 
+
 ***********************************************************************************************************************************
+
 
 Scenario 2 : If we are adding wrong format of purchaseDate then we will get “Invalid receipt: invalid purchase date format (expected YYYY-MM-DD)”
 
 ![image](https://github.com/user-attachments/assets/aec9ae21-befd-44bd-9769-73c626d38fbe)
 
+
 ***********************************************************************************************************************************
+
 
 Scenario 3 : If we are not adding wrong format of purchaseTime then we will get “Invalid receipt: invalid purchase time format (expected HH:MM in 24-hour format)”
 
 ![image](https://github.com/user-attachments/assets/b5d27a57-04c1-4f62-973f-53f84e2c96e6)
 
+
 ***********************************************************************************************************************************
+
 
 Scenario 4 : In all these Scenarios if we do GET REQUEST then we  will get output as “Method not allowed”.
 
+![image](https://github.com/user-attachments/assets/70bfc06f-1f0c-4531-89a4-c6e8cfcbcdc0)
