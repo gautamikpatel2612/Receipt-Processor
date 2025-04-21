@@ -131,6 +131,8 @@ STEP 8 :
     docker build -t receipt-processor .
     docker run -p 8080:8080 receipt-processor
 
+![image](https://github.com/user-attachments/assets/7923a59f-b035-468f-8612-221b0125811a)
+
 
 ***********************************************************************************************************************************
 
