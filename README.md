@@ -60,9 +60,13 @@ Stores all data in memory – no database needed.
 
 
 STEP 1 :  
+ 
   go.mod , go.sum — Initialize Go Module
+ 
   go mod init receipt-processor
+
   go get github.com/google/uuid  : To generate unique IDs for receipts.
+ 
   go get github.com/gorilla/mux  : To handle API routes cleanly and use path parameters like {id}.
 
 
