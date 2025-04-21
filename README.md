@@ -106,4 +106,4 @@ STEP 10 : EX: 1
      	2.  Write a JSON file
      	3. Click on Send
 
-	https://github.com/gautamikpatel2612/Receipt-Processor/blob/278a57ee576f342f1140f9352904ac7e17cd46ab/1.png
+	 https://github.com/gautamikpatel2612/Receipt-Processor/blob/main/1.png?raw=true
