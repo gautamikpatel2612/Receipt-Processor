@@ -135,7 +135,7 @@ STEP 10.1 : EX: 1
 GET url : http://localhost:8080/receipts/{id}/points
 ![image](https://github.com/user-attachments/assets/3c871f79-3c3f-4344-ba91-7c4e53f6f16f)
 
-------------------------------------------------------------------------------------------
+***********************************************************************************************************************************
 
 STEP 10.2  : EX: 2 
 	POST url : http://localhost:8080/receipts/process
@@ -178,5 +178,12 @@ Scenario 1 : If we are not adding any retailer then we will get “Invalid recei
 ![image](https://github.com/user-attachments/assets/86325367-8627-4c00-bdd2-8d48e7b935f6)
 
 ***********************************************************************************************************************************
+
 Scenario 2 : If we are adding wrong format of purchaseDate then we will get “Invalid receipt: invalid purchase date format (expected YYYY-MM-DD)”
+
+![image](https://github.com/user-attachments/assets/aec9ae21-befd-44bd-9769-73c626d38fbe)
+
+***********************************************************************************************************************************
+
+Scenario 3 : If we are not adding wrong format of purchaseTime then we will get “Invalid receipt: invalid purchase time format (expected HH:MM in 24-hour format)”
 
