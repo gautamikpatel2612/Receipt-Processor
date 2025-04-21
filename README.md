@@ -134,3 +134,18 @@ GET url : http://localhost:8080/receipts/{id}/points
 ![image](https://github.com/user-attachments/assets/718c51dc-0e3b-4647-bf8b-c829937eaa0b)
 
 
+Points Logic:
++1 point for every alphanumeric character in the retailer name
++50 points if the total is a round dollar amount with no cents
++25 points if the total is multiple of 0.25
++5 points for every two items on the receipt.
+For items with trimmed description length divisible by 3
+          Add ceil(item.price * 0.2) points
++6 points if the purchase day is odd
++10 points if the purchase time is between 2:00 pm and 4:00pm (exclusive)
+
+
+
+Test Scenario:
+
+Scenario 1 : If we are not adding any retailer then we will get “Invalid receipt: retailer is required”
