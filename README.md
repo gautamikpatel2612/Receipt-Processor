@@ -117,4 +117,9 @@ STEP 10 : EX: 2
                    2.  Write a JSON file
                    3. Click on Send
 
+![image](https://github.com/user-attachments/assets/3e64a14c-8dce-4e57-808a-c8d07883cbab)
+
+GET url : http://localhost:8080/receipts/{id}/points
+
+
 
