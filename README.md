@@ -100,9 +100,10 @@ STEP 9 : Test API with Postman (GUI)
 
 
 STEP 10 : EX: 1  
+	POST url : http://localhost:8080/receipts/process
+		Set Headers :  Key: Content-Type  Value: application/json
+		Set Body :  1. Select raw : (select JSON instead of TEXT),
+     	2.  Write a JSON file
+     	3. Click on Send
 
-POST url : http://localhost:8080/receipts/process
-Set Headers :  Key: Content-Type  Value: application/json
-Set Body :  1. Select raw : (select JSON instead of TEXT),
-     2.  Write a JSON file
-     3. Click on Send
+	https://github.com/gautamikpatel2612/Receipt-Processor/blob/278a57ee576f342f1140f9352904ac7e17cd46ab/1.png
