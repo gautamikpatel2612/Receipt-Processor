@@ -105,5 +105,4 @@ STEP 10 : EX: 1
 		Set Body :  1. Select raw : (select JSON instead of TEXT),
      	2.  Write a JSON file
      	3. Click on Send
-
-	 https://github.com/gautamikpatel2612/Receipt-Processor/blob/main/1.png?raw=true
+![image](https://github.com/user-attachments/assets/d8fbee7c-b880-4938-9f6d-a57cdece79df)
