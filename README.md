@@ -137,26 +137,34 @@ STEP 8 :
 
 STEP 9 : Test API with Postman (GUI)
   
-  1. Submit Receipt – POST
+1. Submit Receipt – POST
    
-    Method: POST
-	  URL: http://localhost:8080/receipts/process
-	  Headers:
-		  Key: Content-Type | Value: application/json
-	  Body: Choose raw → JSON and paste:
+ Method: POST
+	 
+ URL: http://localhost:8080/receipts/process
+	  
+ Headers:
+		 
+ Key: Content-Type | Value: application/json
+	 
+   Body: Choose raw → JSON and paste:
 
-	  Click Send
-	  Response: You’ll get { "id": "some-id" }
+   Click Send
+
+   Response: You’ll get { "id": "some-id" }
 
  
-  2. Get Points – GET
+2. Get Points – GET
    
-    Method: GET
-	  URL: http://localhost:8080/receipts/YOUR-ID-HERE/points
-	  Replace YOUR-ID-HERE with the ID from the first call.
+ Method: GET
+	 
+ URL: http://localhost:8080/receipts/YOUR-ID-HERE/points
+	  
+ Replace YOUR-ID-HERE with the ID from the first call.
     	
-     	  Click Send
-	  Response: { "points": 123 }
+ Click Send
+	  
+ Response: { "points": 123 }
 
 
 ***********************************************************************************************************************************
@@ -166,14 +174,24 @@ STEP 10.1 : EX: 1
 	
  POST url : http://localhost:8080/receipts/process
 	
- Set Headers :  Key: Content-Type  Value: application/json
- Set Body :  1. Select raw : (select JSON instead of TEXT),
-     	2.  Write a JSON file
-      	3. Click on Send
+ Set Headers : 
+ 
+ Key: Content-Type  Value: application/json
+ 
+ Set Body : 
+ 
+ 1. Select raw : (select JSON instead of TEXT),
+ 
+ 2.  Write a JSON file
+ 
+ 3. Click on Send
+
 
 ![image](https://github.com/user-attachments/assets/d8fbee7c-b880-4938-9f6d-a57cdece79df)
 
+
 GET url : http://localhost:8080/receipts/{id}/points
+
 ![image](https://github.com/user-attachments/assets/3c871f79-3c3f-4344-ba91-7c4e53f6f16f)
 
 
@@ -181,15 +199,27 @@ GET url : http://localhost:8080/receipts/{id}/points
 
 
 STEP 10.2  : EX: 2 
-	POST url : http://localhost:8080/receipts/process
-	Set Headers :  Key: Content-Type  Value: application/json
-	Set Body : 1. Select raw : (select JSON instead of TEXT),
-                   2.  Write a JSON file
-                   3. Click on Send
+
+POST url : http://localhost:8080/receipts/process
+ 
+Set Headers :  
+
+Key: Content-Type  Value: application/json
+	
+Set Body : 
+
+1. Select raw : (select JSON instead of TEXT),
+
+2.  Write a JSON file
+
+3. Click on Send
+
 
 ![image](https://github.com/user-attachments/assets/3e64a14c-8dce-4e57-808a-c8d07883cbab)
 
+
 GET url : http://localhost:8080/receipts/{id}/points
+
 
 ![image](https://github.com/user-attachments/assets/718c51dc-0e3b-4647-bf8b-c829937eaa0b)
 
