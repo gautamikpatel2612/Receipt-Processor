@@ -1,6 +1,7 @@
 # Receipt-Processor
 Fetch Rewards: Take Home Assessment - Backend Engineering
 
+***********************************************************************************************************************************
 
 Project Overview
 
@@ -14,14 +15,21 @@ Use uuid to generate unique IDs.
 Use mux to handle API routes cleanly and use path parameters like {id}.
 Use net/http for routing.
 
+***********************************************************************************************************************************
+
 Project Does :
+
+
 Accepts a JSON receipt with information like store name, date, time, and items.
 Calculates points using rules (e.g. based on item descriptions, purchase time, etc.).
 Returns a unique ID for the receipt when submitted.
 Lets you check how many points a receipt earned using that ID.
 Stores all data in memory – no database needed.
 
+
 Receipt-processor /
+
+
 main.go 		  Start the server
 handlers.go		Request handler logic
 models.go		  Points calculation logic
@@ -31,7 +39,7 @@ go.sum			  Go modules
 Dockerfile		for containerization
 README.md 		This file 
 
-
+***********************************************************************************************************************************
 
 STEP 1 :  
   go.mod , go.sum — Initialize Go Module
@@ -39,31 +47,37 @@ STEP 1 :
   go get github.com/google/uuid  : To generate unique IDs for receipts.
   go get github.com/gorilla/mux  : To handle API routes cleanly and use path parameters like {id}.
 
+***********************************************************************************************************************************
 
 STEP 2 :  
   
   models.go — Define Data Structures
 
+***********************************************************************************************************************************
 
 STEP 3 : 
  
   handlers.go — Define Handlers
 
+***********************************************************************************************************************************
 
 STEP 4 :
   
   points.go — Calculate Points Logic
 
+***********************************************************************************************************************************
 
 STEP 5 :
   
   main.go — Entry Point
 
+***********************************************************************************************************************************
 
 STEP 6 :
   
   Dockerfile — Container Setup
 
+***********************************************************************************************************************************
 
 STEP 7 : Run the App Locally(optional)
  
@@ -72,7 +86,7 @@ STEP 7 : Run the App Locally(optional)
     go run main.go handlers.go models.go points.go
     Server will be on: http://localhost:8080
 
-
+***********************************************************************************************************************************
 
 STEP 8 : 
   
@@ -81,7 +95,7 @@ STEP 8 :
     docker build -t receipt-processor .
     docker run -p 8080:8080 receipt-processor
 
-
+***********************************************************************************************************************************
 
 STEP 9 : Test API with Postman (GUI)
   
@@ -105,8 +119,9 @@ STEP 9 : Test API with Postman (GUI)
      	  Click Send
 	  Response: { "points": 123 }
 
+***********************************************************************************************************************************
 
-STEP 10 : EX: 1  
+STEP 10.1 : EX: 1  
 	
  POST url : http://localhost:8080/receipts/process
 	
@@ -120,7 +135,9 @@ STEP 10 : EX: 1
 GET url : http://localhost:8080/receipts/{id}/points
 ![image](https://github.com/user-attachments/assets/3c871f79-3c3f-4344-ba91-7c4e53f6f16f)
 
-STEP 10 : EX: 2
+------------------------------------------------------------------------------------------
+
+STEP 10.2  : EX: 2 
 	POST url : http://localhost:8080/receipts/process
 	Set Headers :  Key: Content-Type  Value: application/json
 	Set Body : 1. Select raw : (select JSON instead of TEXT),
@@ -133,19 +150,33 @@ GET url : http://localhost:8080/receipts/{id}/points
 
 ![image](https://github.com/user-attachments/assets/718c51dc-0e3b-4647-bf8b-c829937eaa0b)
 
+***********************************************************************************************************************************
 
 Points Logic:
+
 +1 point for every alphanumeric character in the retailer name
+
 +50 points if the total is a round dollar amount with no cents
+
 +25 points if the total is multiple of 0.25
+
 +5 points for every two items on the receipt.
+
 For items with trimmed description length divisible by 3
           Add ceil(item.price * 0.2) points
+	  
 +6 points if the purchase day is odd
+
 +10 points if the purchase time is between 2:00 pm and 4:00pm (exclusive)
 
-
+***********************************************************************************************************************************
 
 Test Scenario:
 
 Scenario 1 : If we are not adding any retailer then we will get “Invalid receipt: retailer is required”
+
+![image](https://github.com/user-attachments/assets/86325367-8627-4c00-bdd2-8d48e7b935f6)
+
+***********************************************************************************************************************************
+Scenario 2 : If we are adding wrong format of purchaseDate then we will get “Invalid receipt: invalid purchase date format (expected YYYY-MM-DD)”
+
