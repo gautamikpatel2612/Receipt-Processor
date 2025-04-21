@@ -106,3 +106,15 @@ STEP 10 : EX: 1
      	2.  Write a JSON file
      	3. Click on Send
 ![image](https://github.com/user-attachments/assets/d8fbee7c-b880-4938-9f6d-a57cdece79df)
+
+GET url : http://localhost:8080/receipts/{id}/points
+![image](https://github.com/user-attachments/assets/3c871f79-3c3f-4344-ba91-7c4e53f6f16f)
+
+STEP 10 : EX: 2
+	POST url : http://localhost:8080/receipts/process
+	Set Headers :  Key: Content-Type  Value: application/json
+	Set Body : 1. Select raw : (select JSON instead of TEXT),
+                   2.  Write a JSON file
+                   3. Click on Send
+
+
