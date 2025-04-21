@@ -121,5 +121,6 @@ STEP 10 : EX: 2
 
 GET url : http://localhost:8080/receipts/{id}/points
 
+![image](https://github.com/user-attachments/assets/718c51dc-0e3b-4647-bf8b-c829937eaa0b)
 
 
